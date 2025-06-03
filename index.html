@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 导航主页</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #0078d7;
+    }
+
+    .search-bar {
+      margin-top: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    .search-bar button {
+      padding: 10px 16px;
+      font-size: 16px;
+      margin: 5px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .nav-item {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .nav-item img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .nav-item p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">AI导航</div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="搜索一下试试..." />
+      <button onclick="searchBaidu()">百度一下</button>
+      <button onclick="searchGoogle()">Google搜索</button>
+    </div>
+  </header>
+
+  <section class="nav-grid">
+    <!-- 常规网站 -->
+    <a class="nav-item" href="https://www.baidu.com" target="_blank">
+      <img src="https://www.baidu.com/favicon.ico" alt="百度">
+      <p>百度</p>
+    </a>
+    <a class="nav-item" href="https://www.taobao.com" target="_blank">
+      <img src="https://www.taobao.com/favicon.ico" alt="淘宝">
+      <p>淘宝</p>
+    </a>
+    <a class="nav-item" href="https://www.bilibili.com" target="_blank">
+      <img src="https://www.bilibili.com/favicon.ico" alt="B站">
+      <p>Bilibili</p>
+    </a>
+    <a class="nav-item" href="https://www.zhihu.com" target="_blank">
+      <img src="https://www.zhihu.com/favicon.ico" alt="知乎">
+      <p>知乎</p>
+    </a>
+    <a class="nav-item" href="https://weibo.com" target="_blank">
+      <img src="https://weibo.com/favicon.ico" alt="微博">
+      <p>微博</p>
+    </a>
+
+    <!-- AI网站导航 -->
+    <a class="nav-item" href="https://chat.openai.com" target="_blank">
+      <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT">
+      <p>ChatGPT</p>
+    </a>
+    <a class="nav-item" href="https://deepseek.com" target="_blank">
+      <img src="https://deepseek.com/favicon.ico" alt="Deepseek">
+      <p>Deepseek</p>
+    </a>
+    <a class="nav-item" href="https://poe.com" target="_blank">
+      <img src="https://poe.com/favicon.ico" alt="Poe">
+      <p>Poe</p>
+    </a>
+    <a class="nav-item" href="https://gemini.google.com" target="_blank">
+      <img src="https://gemini.google.com/favicon.ico" alt="Gemini">
+      <p>Gemini</p>
+    </a>
+    <a class="nav-item" href="https://claude.ai" target="_blank">
+      <img src="https://claude.ai/favicon.ico" alt="Claude">
+      <p>Claude</p>
+    </a>
+  </section>
+
+  <footer>
+    © 2025 AI导航页 | 收藏本站试试？🌟
+  </footer>
+
+  <script>
+    function searchBaidu() {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query) {
+        window.open("https://www.baidu.com/s?wd=" + encodeURIComponent(query), "_blank");
+      }
+    }
+
+    function searchGoogle() {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query) {
+        window.open("https://www.google.com/search?q=" + encodeURIComponent(query), "_blank");
+      }
+    }
+  </script>
+</body>
+</html>
