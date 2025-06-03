@@ -1,165 +1,347 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 导航主页</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      text-align: center;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI123_AI从这里开始</title>  <!-- 网站标签页的标题 -->
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #f9f9f9;/* 这是一个CSS注释 */
+            color: #333;
+            text-align: center;
+        }
 
-    header {
-      padding: 20px;
-    }
+        header {
+            padding: 20px;
+        }
 
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      color: #0078d7;
-    }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0078d7;
+        }
 
-    .search-bar {
-      margin-top: 20px;
-    }
+        .search-bar {
+            margin-top: 20px;
+        }
 
-    .search-bar input {
-      padding: 10px;
-      width: 300px;
-      font-size: 16px;
-    }
+            .search-bar input {
+                padding: 10px;
+                width: 300px;
+                font-size: 16px;
+            }
 
-    .search-bar button {
-      padding: 10px 16px;
-      font-size: 16px;
-      margin: 5px;
-      background-color: #0078d7;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
+            .search-bar button {
+                padding: 10px 16px;
+                font-size: 16px;
+                margin: 5px;
+                background-color: #0078d7;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 4px;
+            }
 
-    .nav-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 20px;
-      padding: 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
+        .nav-grid {
+            display: grid;
+            grid-template-rows: auto auto; /* 分为两行 */
+            gap: 40px; /* 增加板块之间的间距 */
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
 
-    .nav-item {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: all 0.3s;
-      text-decoration: none;
-      color: inherit;
-    }
+        .nav-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid #ccc; /* 添加边框 */
+            border-radius: 10px; /* 边框圆角 */
+            background-color: #fff; /* 背景颜色 */
+        }
 
-    .nav-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
 
-    .nav-item img {
-      width: 40px;
-      height: 40px;
-    }
+            .nav-section h2 {
+                font-size: 14px;
+                margin: 0 0 0px;
+                text-align: left; /* 标题居左 */
+                padding: 10px;
 
-    .nav-item p {
-      margin-top: 10px;
-      font-size: 14px;
-    }
+            }
 
-    footer {
-      padding: 20px;
-      font-size: 14px;
-      color: #888;
-    }
-  </style>
+        .nav-item {
+            background: white;
+            border-radius: 10px;
+            padding: 10px; /* 减少内边距以缩小链接 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: row; /* 横向排列 */
+            align-items: center;
+            gap: 5px; /* 增加图标和文字之间的间距 */
+
+        }
+
+            .nav-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            .nav-item img {
+                width: 20px; /* 减小图片大小以缩小图标 */
+                height: 20px; /* 减小图片大小以缩小图标 */
+            }
+
+            .nav-item p {
+                margin: 0; /* 移除段落的上边距 */
+                font-size: 12px; /* 减小字体大小以缩小文字 */
+            }
+
+
+
+        footer {
+            padding: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">AI导航</div>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="搜索一下试试..." />
-      <button onclick="searchBaidu()">百度一下</button>
-      <button onclick="searchGoogle()">Google搜索</button>
-    </div>
-  </header>
+    <header>
+        <div class="logo">AI123</div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜索一下试试..." />
+            <button onclick="searchBaidu()">百度一下</button>
+            <button onclick="searchGoogle()">Google搜索</button>
+        </div>
+    </header>
 
-  <section class="nav-grid">
-    <!-- 常规网站 -->
-    <a class="nav-item" href="https://www.baidu.com" target="_blank">
-      <img src="https://www.baidu.com/favicon.ico" alt="百度">
-      <p>百度</p>
-    </a>
-    <a class="nav-item" href="https://www.taobao.com" target="_blank">
-      <img src="https://www.taobao.com/favicon.ico" alt="淘宝">
-      <p>淘宝</p>
-    </a>
-    <a class="nav-item" href="https://www.bilibili.com" target="_blank">
-      <img src="https://www.bilibili.com/favicon.ico" alt="B站">
-      <p>Bilibili</p>
-    </a>
-    <a class="nav-item" href="https://www.zhihu.com" target="_blank">
-      <img src="https://www.zhihu.com/favicon.ico" alt="知乎">
-      <p>知乎</p>
-    </a>
-    <a class="nav-item" href="https://weibo.com" target="_blank">
-      <img src="https://weibo.com/favicon.ico" alt="微博">
-      <p>微博</p>
-    </a>
+    <section class="nav-grid">
+        <div class="nav-section">
+            <!-- 常用板块的内容 -->
+            <!-- 第一行 -->
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+                <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/chatgpt.ico';">
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
+                <img src="https://deepseek.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/deepseek.ico';">
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+                <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+                <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+                <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <!-- 第二行 -->
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+                <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/chatgpt.ico';">
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
+                <img src="https://deepseek.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/deepseek.ico';">
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+                <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+                <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+                <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <!-- 第三行 -->
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+                <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/chatgpt.ico';">
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
+                <img src="https://deepseek.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/deepseek.ico';">
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+                <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+                <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+                <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
+                <p>Claude</p>
+            </a>
 
-    <!-- AI网站导航 -->
-    <a class="nav-item" href="https://chat.openai.com" target="_blank">
-      <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT">
-      <p>ChatGPT</p>
-    </a>
-    <a class="nav-item" href="https://deepseek.com" target="_blank">
-      <img src="https://deepseek.com/favicon.ico" alt="Deepseek">
-      <p>Deepseek</p>
-    </a>
-    <a class="nav-item" href="https://poe.com" target="_blank">
-      <img src="https://poe.com/favicon.ico" alt="Poe">
-      <p>Poe</p>
-    </a>
-    <a class="nav-item" href="https://gemini.google.com" target="_blank">
-      <img src="https://gemini.google.com/favicon.ico" alt="Gemini">
-      <p>Gemini</p>
-    </a>
-    <a class="nav-item" href="https://claude.ai" target="_blank">
-      <img src="https://claude.ai/favicon.ico" alt="Claude">
-      <p>Claude</p>
-    </a>
-  </section>
+        </div>
 
-  <footer>
-    © 2025 AI导航页 | 收藏本站试试？🌟
-  </footer>
+        <div class="nav-section">
 
-  <script>
-    function searchBaidu() {
-      const query = document.getElementById("searchInput").value.trim();
-      if (query) {
-        window.open("https://www.baidu.com/s?wd=" + encodeURIComponent(query), "_blank");
-      }
-    }
+            <h2>Chat.对话</h2>
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
 
-    function searchGoogle() {
-      const query = document.getElementById("searchInput").value.trim();
-      if (query) {
-        window.open("https://www.google.com/search?q=" + encodeURIComponent(query), "_blank");
-      }
-    }
-  </script>
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://deepseek.com" target="_blank">
+
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+
+                <p>Claude</p>
+            </a>
+
+
+            <h2>Code.编程</h2>
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://deepseek.com" target="_blank">
+
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+
+                <p>Claude</p>
+            </a>
+
+
+            <h2>AIGC.生图</h2>
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://deepseek.com" target="_blank">
+
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+
+                <p>Claude</p>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+
+                <p>Claude</p>
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2025 AI导航页 | 收藏本站试试？🌟
+    </footer>
+
+    <script>
+        function searchBaidu() {
+            const query = document.getElementById("searchInput").value.trim();
+            if (query) {
+                window.open("https://www.baidu.com/s?wd=" + encodeURIComponent(query), "_blank");
+            }
+        }
+
+        function searchGoogle() {
+            const query = document.getElementById("searchInput").value.trim();
+            if (query) {
+                window.open("https://www.google.com/search?q=" + encodeURIComponent(query), "_blank");
+            }
+        }
+    </script>
 </body>
 </html>
