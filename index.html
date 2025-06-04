@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eden的AI导航</title>  <!-- 网站标签页的标题 -->
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon"> <!-- 添加favicon链接 -->
     <style>
         body {
             margin: 0;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #f9f9f9;/* 这是一个CSS注释 */
+            background-color: #f9f9f9; /* 这是一个CSS注释 */
             color: #333;
             text-align: center;
         }
@@ -23,6 +24,7 @@
             color: #0078d7;
         }
 
+        /* 搜索框 */
         .search-bar {
             margin-top: 20px;
         }
@@ -44,6 +46,7 @@
                 border-radius: 4px;
             }
 
+        /* 网格布局 */
         .nav-grid {
             display: grid;
             grid-template-rows: auto auto; /* 分为两行 */
@@ -63,28 +66,28 @@
             background-color: #fff; /* 背景颜色 */
         }
 
-
+            /* 分类名称文字设置 */
             .nav-section h2 {
+                grid-column: 1 / span 1; /* 强制新行并靠左，不占满 */
                 font-size: 14px;
                 margin: 0 0 0px;
                 text-align: left; /* 标题居左 */
                 padding: 10px;
-
             }
 
+        /* 卡片 */
         .nav-item {
-            background: white;
+            background: #fff;
             border-radius: 10px;
-            padding: 10px; /* 减少内边距以缩小链接 */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: all 0.3s;
+            padding: 14px 10px;
+            display: flex;
+            flex-direction: column; /* 统一竖排，板块一无说明也 OK */
+            align-items: center;
+            gap: 6px;
             text-decoration: none;
             color: inherit;
-            display: flex;
-            flex-direction: row; /* 横向排列 */
-            align-items: center;
-            gap: 5px; /* 增加图标和文字之间的间距 */
-
+            box-shadow: 0 1px 4px rgba(0,0,0,.05);
+            transition: .25s;
         }
 
             .nav-item:hover {
@@ -99,15 +102,24 @@
 
             .nav-item p {
                 margin: 0; /* 移除段落的上边距 */
-                font-size: 12px; /* 减小字体大小以缩小文字 */
+                font-size: 14px; /* 减小字体大小以缩小文字 */
             }
 
+            /* 小字说明设置 */
+            .nav-item .desc {
+                font-size: 12px;
+                color: #666;
+                line-height: 1.3;
+                text-align: center;
+            }
 
 
         footer {
             padding: 10px;
             font-size: 14px;
             color: #888;
+
+
         }
     </style>
 </head>
@@ -122,9 +134,8 @@
         </div>
     </header>
 
-    <section class="nav-grid">
+    <section class="nav-grid">      <!-- 板块一.常用网站 -->
         <div class="nav-section">
-            <!-- 常用板块的内容 -->
             <!-- 第一行 -->
             <a class="nav-item" href="https://chat.openai.com" target="_blank">
                 <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/chatgpt.ico';">
@@ -159,13 +170,13 @@
                 <p>Claude</p>
             </a>
             <!-- 第二行 -->
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
-                <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/chatgpt.ico';">
-                <p>ChatGPT</p>
+            <a class="nav-item" href="https://www.midjourney.com" target="_blank">
+                <img src="https://www.midjourney.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/midjourney.ico';">
+                <p>Midjourney</p>
             </a>
-            <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
-                <img src="https://deepseek.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/deepseek.ico';">
-                <p>Deepseek</p>
+            <a class="nav-item" href="https://civitai.com" target="_blank">
+                <img src="https://civitai.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/civitai.ico';">
+                <p>Civitai</p>
             </a>
             <a class="nav-item" href="https://poe.com" target="_blank">
                 <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
@@ -192,13 +203,13 @@
                 <p>Claude</p>
             </a>
             <!-- 第三行 -->
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
-                <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/chatgpt.ico';">
-                <p>ChatGPT</p>
+            <a class="nav-item" href="https://www.cursor.com" target="_blank">
+                <img src="https://www.cursor.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/cursor.ico';">
+                <p>Cursor</p>
             </a>
-            <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
-                <img src="https://deepseek.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/deepseek.ico';">
-                <p>Deepseek</p>
+            <a class="nav-item" href="https://modelcontextprotocol.io" target="_blank">
+                <img src="https://modelcontextprotocol.io/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/mcp.ico';">
+                <p>MCP</p>
             </a>
             <a class="nav-item" href="https://poe.com" target="_blank">
                 <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
@@ -228,11 +239,13 @@
         </div>
 
         <div class="nav-section">
+            <!-- 板块二.分类网站-->
 
             <h2>Chat.对话</h2>
             <a class="nav-item" href="https://chat.openai.com" target="_blank">
 
                 <p>ChatGPT</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
             <a class="nav-item" href="https://deepseek.com" target="_blank">
 
@@ -261,9 +274,9 @@
 
 
             <h2>Code.编程</h2>
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+            <a class="nav-item" href="https://www.cursor.com" target="_blank">
 
-                <p>ChatGPT</p>
+                <p>Cursor</p>
             </a>
             <a class="nav-item" href="https://deepseek.com" target="_blank">
 
