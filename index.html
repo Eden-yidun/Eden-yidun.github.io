@@ -14,53 +14,67 @@
             text-align: center;
         }
 
-        header {
-            padding: 20px;
-        }
-
-        .logo {
+        .logo { /* 顶部设置*/
             font-size: 32px;
             font-weight: bold;
-            color: #0078d7;
+            color: inherit;
         }
 
-        /* 搜索框 */
+        header { /*搜所板块设置*/
+            padding: 10px;
+            position: sticky;
+            top: 0; /* 距离窗口顶部 0 */
+            z-index: 999; /* 压在内容之上 */
+            background: #f9f9f9; /* 给同色背景 */
+        }
+            header.shadow {
+                box-shadow: 0 2px 6px rgba(0,0,0,.08); /* 想更明显调这里 */
+            }
+
+
+
+
+        /* 搜索板块样式设置 */
         .search-bar {
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
             .search-bar input {
                 padding: 10px;
                 width: 300px;
                 font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px; /* 圆角 */
+                outline: none;
             }
 
             .search-bar button {
                 padding: 10px 16px;
                 font-size: 16px;
-                margin: 5px;
+                margin: 0px;
+                line-height: 20px; /* 文字垂直居中 */
                 background-color: #0078d7;
                 color: white;
                 border: none;
                 cursor: pointer;
-                border-radius: 4px;
+                border-radius: 5px; /* 圆角 */
             }
 
         /* 网格布局 */
         .nav-grid {
             display: grid;
             grid-template-rows: auto auto; /* 分为两行 */
-            gap: 40px; /* 增加板块之间的间距 */
-            padding: 40px;
-            max-width: 1000px;
+            gap: 15px; /* 增加板块之间的间距 */
+            padding: 15px;
+            max-width: 1200px;
             margin: auto;
         }
 
         .nav-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            padding: 15px;
             border: 1px solid #ccc; /* 添加边框 */
             border-radius: 10px; /* 边框圆角 */
             background-color: #fff; /* 背景颜色 */
@@ -68,22 +82,25 @@
 
             /* 分类名称文字设置 */
             .nav-section h2 {
-                grid-column: 1 / span 1; /* 强制新行并靠左，不占满 */
+                grid-column: 1 / 1; /* 强制新行并靠左，不占满 */
                 font-size: 14px;
-                margin: 0 0 0px;
+                margin: 0;
+                display: flex;
+                align-items: center;
                 text-align: left; /* 标题居左 */
-                padding: 10px;
+                padding: 0px;
+                gap: 0px;
             }
 
         /* 卡片 */
         .nav-item {
             background: #fff;
             border-radius: 10px;
-            padding: 14px 10px;
+            padding: 5px 10px;
             display: flex;
-            flex-direction: column; /* 统一竖排，板块一无说明也 OK */
+            flex-direction: row; /* 统一竖排，板块一无说明也 OK */
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             text-decoration: none;
             color: inherit;
             box-shadow: 0 1px 4px rgba(0,0,0,.05);
@@ -105,135 +122,250 @@
                 font-size: 14px; /* 减小字体大小以缩小文字 */
             }
 
-            /* 小字说明设置 */
+            /* 常用小字说明设置 */
             .nav-item .desc {
+                display: none; /* 默认隐藏 */
+                position: absolute;
+                bottom: -32px; /* 卡片下方浮出 */
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+                background: #fff;
+                padding: 4px 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.12);
                 font-size: 12px;
-                color: #666;
-                line-height: 1.3;
-                text-align: center;
+                color: #444;
+                z-index: 10;
+                pointer-events: none; /* 不抢焦点 */
+            }
+
+            .nav-item:hover .desc {
+                display: block;
             }
 
 
-        footer {
-            padding: 10px;
-            font-size: 14px;
-            color: #888;
-
+        /* ---------- Tab 专题区 ---------- */
+        .tab-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            padding: 15px;
 
         }
+
+        .tab-header { 
+            display: flex;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+            .tab-header li { /* 默认外观 */
+                padding: 8px 10px;
+                cursor: pointer;
+                background: #eee;
+                border: 1px solid #ccc;
+                border-bottom: none; /* 与面板无缝衔接 */
+                border-radius: 8px 8px 0 0;
+                font-size: 15px;
+            }
+
+                /* ← 高亮时额外加 .active */
+                .tab-header li.active {
+                    background: #fff; /* 亮底色 */
+                    font-weight: 600; /* 加粗 */
+                    border-color: #ccc #ccc #fff; /* 底边同面板颜色 */
+                }
+
+
+
+        .tab-panel { /* 专题内设置 */
+            display: none;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc; /* 添加边框 */
+            border-radius: 0 0 8px 8px; /* 边框圆角 */
+            background-color: #fff; /* 背景颜色 */
+        }
+
+            .tab-panel.active {
+                display: block;
+            }
+
+
+    footer {
+        padding: 10px;
+        font-size: 14px;
+        color: #888;
+    }
     </style>
 </head>
 <body>
-
+    <logo>
+        <div class="logo">
+            Eden的AI导航
+        </div>
+    <!-- 搜索板块文字设置 -->
     <header>
-        <div class="logo">Eden的AI导航</div>
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="搜索一下试试..." />
             <button onclick="searchBaidu()">百度一下</button>
-            <button onclick="searchGoogle()">Google搜索</button>
+            <button onclick="searchGoogle()">Google搜</button>
+            <button onclick="searchBilibili()">Bilibili搜</button>
+            <button onclick="searchYoutube()">YouTube搜</button>
+            <button onclick="searchGithub()">GitHub搜</button>
+
         </div>
     </header>
 
-    <section class="nav-grid">      <!-- 板块一.常用网站 -->
+    <section class="nav-grid">
+        <!-- 板块一.常用网站 -->
         <div class="nav-section">
             <!-- 第一行 -->
             <a class="nav-item" href="https://chat.openai.com" target="_blank">
-                <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/chatgpt.ico';">
+                <img src="icon/chatgpt.ico" >
                 <p>ChatGPT</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
                 <img src="https://deepseek.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/deepseek.ico';">
                 <p>Deepseek</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
+
             </a>
             <a class="nav-item" href="https://poe.com" target="_blank">
                 <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
                 <p>Poe</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://gemini.google.com" target="_blank">
                 <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
                 <p>Gemini</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
+
             </a>
             <a class="nav-item" href="https://grok.com/" target="_blank">
                 <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
                 <p>Grok</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
+
             </a>
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <!-- 第二行 -->
             <a class="nav-item" href="https://www.midjourney.com" target="_blank">
                 <img src="https://www.midjourney.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/midjourney.ico';">
                 <p>Midjourney</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://civitai.com" target="_blank">
                 <img src="https://civitai.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/civitai.ico';">
                 <p>Civitai</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://poe.com" target="_blank">
                 <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
                 <p>Poe</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://gemini.google.com" target="_blank">
                 <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
                 <p>Gemini</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
             <a class="nav-item" href="https://grok.com/" target="_blank">
                 <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
                 <p>Grok</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <!-- 第三行 -->
             <a class="nav-item" href="https://www.cursor.com" target="_blank">
                 <img src="https://www.cursor.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/cursor.ico';">
                 <p>Cursor</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://modelcontextprotocol.io" target="_blank">
                 <img src="https://modelcontextprotocol.io/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/mcp.ico';">
                 <p>MCP</p>
             </a>
+
             <a class="nav-item" href="https://poe.com" target="_blank">
                 <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
                 <p>Poe</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://gemini.google.com" target="_blank">
                 <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
                 <p>Gemini</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://grok.com/" target="_blank">
                 <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
                 <p>Grok</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
             </a>
+
             <a class="nav-item" href="https://claude.ai" target="_blank">
                 <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
                 <p>Claude</p>
+                <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
 
         </div>
@@ -243,7 +375,6 @@
 
             <h2>Chat.对话</h2>
             <a class="nav-item" href="https://chat.openai.com" target="_blank">
-
                 <p>ChatGPT</p>
                 <span class="desc">OpenAI GPT‑4o 直连</span>
             </a>
@@ -304,57 +435,217 @@
             </a>
 
 
-            <h2>AIGC.生图</h2>
+            <h2>Image.生图</h2>
             <a class="nav-item" href="https://chat.openai.com" target="_blank">
-
                 <p>ChatGPT</p>
             </a>
             <a class="nav-item" href="https://deepseek.com" target="_blank">
-
                 <p>Deepseek</p>
             </a>
             <a class="nav-item" href="https://poe.com" target="_blank">
-
                 <p>Poe</p>
             </a>
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
-
-                <p>Gemini</p>
+            <a class="nav-item" href="https://www.lovart.ai" target="_blank">
+                <p>Lovart</p>
+                <span class="desc">自然语言驱动的设计行业AI</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-
-                <p>Claude</p>
+            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+                <p>Scenario</p>
+                <span class="desc">游戏风格的生图网站</span>
             </a>
             <a class="nav-item" href="https://grok.com/" target="_blank">
-
                 <p>Grok</p>
             </a>
             <a class="nav-item" href="https://claude.ai" target="_blank">
-
                 <p>Claude</p>
             </a>
+
+
+            <h2>Audio.音频</h2>
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://deepseek.com" target="_blank">
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+                <p>Scenario</p>
+                <span class="desc">游戏风格的生图网站</span>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <p>Claude</p>
+            </a>
+
+            <h2>Video.视频</h2>
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://deepseek.com" target="_blank">
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+                <p>Scenario</p>
+                <span class="desc">游戏风格的生图网站</span>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <p>Claude</p>
+            </a>
+
+            <h2>Virtual.虚拟人</h2>
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://deepseek.com" target="_blank">
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+                <p>Scenario</p>
+                <span class="desc">游戏风格的生图网站</span>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <p>Claude</p>
+            </a>
+
+            <h2>Face.换脸</h2>
+            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+                <p>ChatGPT</p>
+            </a>
+            <a class="nav-item" href="https://deepseek.com" target="_blank">
+                <p>Deepseek</p>
+            </a>
+            <a class="nav-item" href="https://poe.com" target="_blank">
+                <p>Poe</p>
+            </a>
+            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+                <p>Gemini</p>
+            </a>
+            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+                <p>Scenario</p>
+                <span class="desc">游戏风格的生图网站</span>
+            </a>
+            <a class="nav-item" href="https://grok.com/" target="_blank">
+                <p>Grok</p>
+            </a>
+            <a class="nav-item" href="https://claude.ai" target="_blank">
+                <p>Claude</p>
+            </a>
+
 
         </div>
     </section>
 
-    <footer>
-        © 2025 AI导航页 | 收藏本站试试？🌟
-    </footer>
+    <!-- 板块三 · 专题标签页 -->
+    <div class="nav-grid">
+        <div class="tabs-section">
+            <ul class="tab-header" id="tabHeader">
+                <li class="active" data-tab="comfy">ComfyUI 专题</li>
+                <li data-tab="voice">AI 变声专题</li>
+                <li data-tab="face">换脸专题</li>
+            </ul>
 
-    <script>
-        function searchBaidu() {
-            const query = document.getElementById("searchInput").value.trim();
-            if (query) {
-                window.open("https://www.baidu.com/s?wd=" + encodeURIComponent(query), "_blank");
-            }
-        }
+            <div class="tab-panel active" id="comfy">
+                <h3>ComfyUI 速查</h3>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
+                <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank">ComfyUI · GitHub</a>
+            </div>
 
-        function searchGoogle() {
-            const query = document.getElementById("searchInput").value.trim();
-            if (query) {
-                window.open("https://www.google.com/search?q=" + encodeURIComponent(query), "_blank");
+            <div class="tab-panel" id="voice">
+                <h3>AI 变声资源</h3>
+                <p>RVC、So-VITS、VoiceCraft 教程合集、模型下载索引……</p>
+                <a href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI" target="_blank">RVC WebUI</a>
+            </div>
+
+            <div class="tab-panel" id="face">
+                <h3>AI 换脸工具</h3>
+                <p>InsightFaceSwap、roop、DeepFaceLab 快速上手、训练踩坑记录……</p>
+                <a href="https://github.com/s0md3v/roop" target="_blank">Roop · GitHub</a>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+            © 2025 AI导航页 | 收藏本站试试？🌟
+        </footer>
+
+
+        <script>
+            /* ———  下拉时给 搜索板块 加阴影  ——— */
+            const hdr = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                hdr.classList.toggle('shadow', window.scrollY > 0);
+            });
+            /* 搜索按钮的功能逻辑 */
+            function searchBaidu() {
+                const query = document.getElementById("searchInput").value.trim();
+                if (query) {
+                    window.open("https://www.baidu.com/s?wd=" + encodeURIComponent(query), "_blank");
+                }
             }
-        }
-    </script>
+
+            function searchGoogle() {
+                const query = document.getElementById("searchInput").value.trim();
+                if (query) {
+                    window.open("https://www.google.com/search?q=" + encodeURIComponent(query), "_blank");
+                }
+            }
+            function searchBilibili() {
+                const q = document.getElementById("searchInput").value.trim();
+                if (q) window.open("https://search.bilibili.com/all?keyword=" + encodeURIComponent(q), "_blank");
+            }
+
+            function searchYoutube() {
+                const q = document.getElementById("searchInput").value.trim();
+                if (q) window.open("https://www.youtube.com/results?search_query=" + encodeURIComponent(q), "_blank");
+            }
+
+            function searchGithub() {
+                const q = document.getElementById("searchInput").value.trim();
+                if (q) window.open("https://github.com/search?q=" + encodeURIComponent(q), "_blank");
+            }
+
+            /* —— Tab 切换 —— */
+            document.getElementById('tabHeader').addEventListener('click', e => {
+                if (e.target.tagName !== 'LI') return;
+
+                /* 1️⃣ 高亮当前按钮，取消其他 */
+                [...e.currentTarget.children].forEach(li => {
+                    li.classList.toggle('active', li === e.target);
+                });
+
+                /* 2️⃣ 切换面板（根据 data-tab ↔ id） */
+                const id = e.target.dataset.tab;
+                document.querySelectorAll('.tab-panel').forEach(p => {
+                    p.classList.toggle('active', p.id === id);
+                });
+            });
+
+        </script>
 </body>
 </html>
