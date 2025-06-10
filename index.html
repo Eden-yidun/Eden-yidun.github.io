@@ -14,11 +14,6 @@
             text-align: center;
         }
 
-        .logo { /* 顶部设置*/
-            font-size: 32px;
-            font-weight: bold;
-            color: inherit;
-        }
 
         header { /*搜所板块设置*/
             padding: 10px;
@@ -31,12 +26,24 @@
                 box-shadow: 0 2px 6px rgba(0,0,0,.08); /* 想更明显调这里 */
             }
 
-
+        .logo { /* 顶部logo*/
+            grid-template-rows: auto;
+            max-width: 1200px;
+            margin: auto;
+			font-size: 14px;
+            font-weight: bold;
+            color: inherit;
+			text-align: left;
+			padding: 10px 0 0 0px; /* 四周间隙 */
+        }
 
 
         /* 搜索板块样式设置 */
         .search-bar {
-            margin-top: 10px;
+            max-width: 1200px;
+            margin: auto;
+			padding: 0 0 0 10px;
+			text-align: center;	
         }
 
             .search-bar input {
@@ -201,13 +208,14 @@
         font-size: 14px;
         color: #888;
     }
+    .lgo {
+}
     </style>
 </head>
 <body>
-    <logo>
-        <div class="logo">
-            Eden的AI导航
-        </div>
+		<div class="logo">
+			<img src="../AIpage/icon/logo.png" alt="" width="150"  class="logo"/>
+        &nbsp; </div>
     <!-- 搜索板块文字设置 -->
     <header>
         <div class="search-bar">
