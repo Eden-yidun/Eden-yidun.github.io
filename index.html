@@ -77,7 +77,7 @@
             margin: auto;
         }
 
-        .nav-section {
+        .nav-section{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
@@ -99,13 +99,13 @@
                 gap: 0px;
             }
 
-        /* 卡片 */
+        /* 常用的卡片 */
         .nav-item {
             background: #fff;
             border-radius: 10px;
             padding: 5px 10px;
             display: flex;
-            flex-direction: row; /* 统一竖排，板块一无说明也 OK */
+            flex-direction:row; /* 统一竖排，板块一无说明也 OK */
             align-items: center;
             gap: 5px;
             text-decoration: none;
@@ -151,6 +151,45 @@
             .nav-item:hover .desc {
                 display: block;
             }
+		/* 分类的卡片 */
+        .nav-item2 {
+            background: #fff;
+            border-radius: 10px;
+            padding: 5px 10px;
+            display: flex;
+            flex-direction:column; /* 统一竖排，板块一无说明也 OK */
+            align-items: flex-start;
+            gap: 5px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 1px 4px rgba(0,0,0,.05);
+            transition: .25s;
+        }
+		    .nav-item2:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            }
+
+            .nav-item2 p {
+                margin: 0; /* 移除段落的上边距 */
+                font-size: 14px; /* 减小字体大小以缩小文字 */
+				color: #222;
+            }
+		
+            /* 分类小字说明设置 */
+            .nav-item2 .desc2 {
+    			display: block;              /* 始终显示 */
+    			font-size: 12px;             /* 更小 */
+    			color:#bbb;
+    			overflow-x: auto;
+                white-space: nowrap;
+                background: #fff;
+                font-size: 12px;
+                color: #bbb;
+                z-index: 10;
+                pointer-events: none; /* 不抢焦点 */
+            }
+
 
 
         /* ---------- Tab 专题区 ---------- */
@@ -380,189 +419,252 @@
 
         <div class="nav-section">
             <!-- 板块二.分类网站-->
-
             <h2>Chat.对话</h2>
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+            <a class="nav-item2" href="https://chat.openai.com" target="_blank">
                 <p>ChatGPT</p>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
+                <span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://deepseek.com" target="_blank">
-
+			
+            <a class="nav-item2" href="https://deepseek.com" target="_blank">
                 <p>Deepseek</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
-
+			
+            <a class="nav-item2" href="https://poe.com" target="_blank">
                 <p>Poe</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
-
+			
+            <a class="nav-item2" href="https://gemini.google.com" target="_blank">
                 <p>Gemini</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-
+			
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
-
+			
+            <a class="nav-item2" href="https://grok.com/" target="_blank">
                 <p>Grok</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-
+			
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
 
 
             <h2>Code.编程</h2>
-            <a class="nav-item" href="https://www.cursor.com" target="_blank">
-
+            <a class="nav-item2" href="https://www.cursor.com" target="_blank">
                 <p>Cursor</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://deepseek.com" target="_blank">
-
+			
+            <a class="nav-item2" href="https://deepseek.com" target="_blank">
                 <p>Deepseek</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
-
+			
+            <a class="nav-item2" href="https://poe.com" target="_blank">
                 <p>Poe</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
-
+			
+            <a class="nav-item2" href="https://gemini.google.com" target="_blank">
                 <p>Gemini</p>
+				<span class="desc2">OpenAI GPT‑4o 直连</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-
+			
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">自然语言设计行业AI</span>
             </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
-
+			
+            <a class="nav-item2" href="https://grok.com/" target="_blank">
                 <p>Grok</p>
+				<span class="desc2">自然语言驱动</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-
+			
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">自然语言驱动的</span>
             </a>
 
 
             <h2>Image.生图</h2>
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+            <a class="nav-item2" href="https://chat.openai.com" target="_blank">
                 <p>ChatGPT</p>
+				<span class="desc2">自然语言驱动I</span>
             </a>
-            <a class="nav-item" href="https://deepseek.com" target="_blank">
+            <a class="nav-item2" href="https://deepseek.com" target="_blank">
                 <p>Deepseek</p>
+				<span class="desc2">自然语言计行业AI</span>
             </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
+            <a class="nav-item2" href="https://poe.com" target="_blank">
                 <p>Poe</p>
+				<span class="desc2">自然语言驱计行业AI</span>
             </a>
-            <a class="nav-item" href="https://www.lovart.ai" target="_blank">
+			
+            <a class="nav-item2" href="https://www.lovart.ai" target="_blank">
                 <p>Lovart</p>
-                <span class="desc">自然语言驱动的设计行业AI</span>
+                <span class="desc2">自然语言计行业AI</span>
             </a>
-            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+			
+            <a class="nav-item2" href="https://app.scenario.com" target="_blank">
                 <p>Scenario</p>
-                <span class="desc">游戏风格的生图网站</span>
+                <span class="desc2">游戏风格生图网站</span>
             </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
+			
+            <a class="nav-item2" href="https://grok.com/" target="_blank">
                 <p>Grok</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
+			
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
 
+		
 
             <h2>Audio.音频</h2>
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+            <a class="nav-item2" href="https://chat.openai.com" target="_blank">
                 <p>ChatGPT</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://deepseek.com" target="_blank">
+			
+            <a class="nav-item2" href="https://deepseek.com" target="_blank">
                 <p>Deepseek</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
+			
+            <a class="nav-item2" href="https://poe.com" target="_blank">
                 <p>Poe</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+			
+            <a class="nav-item2" href="https://gemini.google.com" target="_blank">
                 <p>Gemini</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+			
+            <a class="nav-item2" href="https://app.scenario.com" target="_blank">
                 <p>Scenario</p>
-                <span class="desc">游戏风格的生图网站</span>
+                <span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
+			
+            <a class="nav-item2" href="https://grok.com/" target="_blank">
                 <p>Grok</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
+			
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
 
+			
             <h2>Video.视频</h2>
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+            <a class="nav-item2" href="https://chat.openai.com" target="_blank">
                 <p>ChatGPT</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://deepseek.com" target="_blank">
+            <a class="nav-item2" href="https://deepseek.com" target="_blank">
                 <p>Deepseek</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
+            <a class="nav-item2" href="https://poe.com" target="_blank">
                 <p>Poe</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+            <a class="nav-item2" href="https://gemini.google.com" target="_blank">
                 <p>Gemini</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+            <a class="nav-item2" href="https://app.scenario.com" target="_blank">
                 <p>Scenario</p>
-                <span class="desc">游戏风格的生图网站</span>
+                <span class="desc2">游戏风的生图网站</span>
             </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
+            <a class="nav-item2" href="https://grok.com/" target="_blank">
                 <p>Grok</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
 
             <h2>Virtual.虚拟人</h2>
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+            <a class="nav-item2" href="https://chat.openai.com" target="_blank">
                 <p>ChatGPT</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://deepseek.com" target="_blank">
+			
+            <a class="nav-item2" href="https://deepseek.com" target="_blank">
                 <p>Deepseek</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
+			
+            <a class="nav-item2" href="https://poe.com" target="_blank">
                 <p>Poe</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+			
+            <a class="nav-item2" href="https://gemini.google.com" target="_blank">
                 <p>Gemini</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+			
+            <a class="nav-item2" href="https://app.scenario.com" target="_blank">
                 <p>Scenario</p>
-                <span class="desc">游戏风格的生图网站</span>
+                <span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
+			
+            <a class="nav-item2" href="https://grok.com/" target="_blank">
                 <p>Grok</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
 
             <h2>Face.换脸</h2>
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
+            <a class="nav-item2" href="https://chat.openai.com" target="_blank">
                 <p>ChatGPT</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://deepseek.com" target="_blank">
+			
+            <a class="nav-item2" href="https://deepseek.com" target="_blank">
                 <p>Deepseek</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
+			
+            <a class="nav-item2" href="https://poe.com" target="_blank">
                 <p>Poe</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
+			
+            <a class="nav-item2" href="https://gemini.google.com" target="_blank">
                 <p>Gemini</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://app.scenario.com" target="_blank">
+			
+            <a class="nav-item2" href="https://app.scenario.com" target="_blank">
                 <p>Scenario</p>
-                <span class="desc">游戏风格的生图网站</span>
+                <span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
+			
+            <a class="nav-item2" href="https://grok.com/" target="_blank">
                 <p>Grok</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
+			
+            <a class="nav-item2" href="https://claude.ai" target="_blank">
                 <p>Claude</p>
+				<span class="desc2">游戏风格的生图网站</span>
             </a>
 
 
@@ -582,6 +684,13 @@
                 <h3>ComfyUI 速查</h3>
                 <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
                 <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank">ComfyUI · GitHub</a>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
+                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
             </div>
 
             <div class="tab-panel" id="voice">
