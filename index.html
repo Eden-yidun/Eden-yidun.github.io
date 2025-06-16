@@ -89,14 +89,13 @@
 
             /* 分类名称文字设置 */
             .nav-section h2 {
-                grid-column: 1 / 1; /* 强制新行并靠左，不占满 */
-                font-size: 14px;
-                margin: 0;
-                display: flex;
-                align-items: center;
-                text-align: left; /* 标题居左 */
-                padding: 0px;
-                gap: 0px;
+				grid-column: 1 / 1; /* 强制新行并靠左，不占满 */
+				font-size: 14px;
+				display: flex;
+				align-items: center;
+				text-align: left; /* 标题居左 */
+				padding: 0px;
+				gap: 0px;
             }
 
         /* 常用的卡片 */
@@ -235,11 +234,103 @@
             border: 1px solid #ccc; /* 添加边框 */
             border-radius: 0 0 8px 8px; /* 边框圆角 */
             background-color: #fff; /* 背景颜色 */
+			gap: 20px;
         }
 
             .tab-panel.active {
                 display: block;
             }
+		
+		.tab-panel-content {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;       /* 块与块之间间距 */
+			margin-right: 0;
+			margin-left: 0;
+			margin-bottom: 0;
+		}
+		/* ===== 每块标题与内容横排 ===== */
+		.tab-block-row {
+			display: row;
+			align-items: flex-start;
+			gap: 10px;
+		}
+
+		.tab-block-title {
+			min-width: 70px;
+			font-weight: 600;
+			color: #0;
+			font-size: 15px;
+			margin-right: 10px;
+			margin-top: 10px;
+		}
+
+		/* ===== 专家卡组横排 ===== */
+		.tab-experts {
+			display: flex;
+			gap: 20px;
+			margin-left: 70px; 
+			flex-wrap: wrap;
+		}
+		.tab-expert-card {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+		.tab-expert-card img {
+			width: 32px; height: 32px;
+			border-radius: 50%;
+			border: 1px solid #eee;
+			object-fit: cover;
+		}
+		.tab-expert-card a {
+			color: #222;
+			text-decoration: none;
+			font-size: 14px;
+			transition: color .15s;
+		}
+		.tab-expert-card a:hover {
+			color: #0078d7;
+			text-decoration: underline;
+		}
+
+		/* ===== 相关链接组横排 ===== */
+		.tab-rel-links {
+			display: flex;
+			flex-direction: row;
+			gap: 16px;
+			flex-wrap: wrap;
+			margin-left: 70px; 
+		}
+		.tab-rel-links a {
+			color: #0078d7;
+			text-decoration: none;
+			font-size: 16px;
+			transition: text-decoration .15s;
+		}
+		.tab-rel-links a:hover {
+			text-decoration: underline;
+		}
+
+		/* ===== 相关阅读竖排 ===== */
+		.tab-read-list {
+			display: flex;
+			flex-direction: column;
+			gap: 7px;
+			margin-left: 70px;  /* 与标题对齐 */
+		}
+		.tab-read-list a {
+			color: #333;
+			font-size: 16px;
+			text-decoration: none;
+			transition: color .15s;
+			line-height: 1.6;
+			word-break: break-all;
+		}
+		.tab-read-list a:hover {
+			color: #0078d7;
+			text-decoration: underline;
+		}
 
 
     footer {
@@ -264,6 +355,7 @@
             <button onclick="searchBilibili()">Bilibili搜</button>
             <button onclick="searchYoutube()">YouTube搜</button>
             <button onclick="searchGithub()">GitHub搜</button>
+            <button onclick="searchHuggingface()">HuggingFace搜</button>
 
         </div>
     </header>
@@ -680,31 +772,132 @@
                 <li data-tab="face">换脸专题</li>
             </ul>
 
-            <div class="tab-panel active" id="comfy">
-                <h3>ComfyUI 速查</h3>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-                <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank">ComfyUI · GitHub</a>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-                <p>常用节点讲解、提示工程模板、性能调参技巧……（自行填充内容或外链）</p>
-            </div>
+	<div class="tab-panel active" id="comfy">
+		
+		<div class="tab-panel-content">
+			<!-- 第一部分：专家学者 -->
+			<div class="tab-block-row">
+				<div class="tab-block-title">专家学者</div>
+				<div class="tab-experts">
+					<!-- 专家卡片 -->
+					<div class="tab-expert-card">
+						<img src="head/eden.avif" alt="专家1">
+						<a href="https://example.com/expert1" target="_blank">一墩_Eden</a>
+					</div>
+					<div class="tab-expert-card">
+						<img src="head/eden.avif" alt="专家2">
+						<a href="https://example.com/expert2" target="_blank">一墩_Eden</a>
+					</div>
+					<!-- ...更多 -->
+				</div>
+			</div>
 
-            <div class="tab-panel" id="voice">
-                <h3>AI 变声资源</h3>
-                <p>RVC、So-VITS、VoiceCraft 教程合集、模型下载索引……</p>
-                <a href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI" target="_blank">RVC WebUI</a>
+			<!-- 第二部分：相关链接 -->
+			<div class="tab-block-row">
+				<div class="tab-block-title">相关链接</div>
+				<div class="tab-rel-links">
+					<a href="https://link1.com" target="_blank">官方包</a>
+					<a href="https://link2.com" target="_blank">秋叶包</a>
+					<a href="https://link3.com" target="_blank">其他</a>
+				</div>
+			</div>
+
+			<!-- 第三部分：相关阅读 -->
+			<div>
+				<div class="tab-block-title">相关阅读</div>
+				<div class="tab-read-list">
+					<a href="https://www.bilibili.com/video/BV1pZ42147iV/?spm_id_from=333.1387.homepage.video_card.click" target="_blank">第二期丨超自然AI换脸-升级版丨优化显存 | 轻松安装</a>
+					<a href="https://news2.com" target="_blank">新闻文章2标题</a>
+					<a href="https://news3.com" target="_blank">新闻文章3标题</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+        <div class="tab-panel" id="voice">
+            <div class="tab-panel-content">
+			<!-- 第一部分：专家学者 -->
+			<div class="tab-block-row">
+				<div class="tab-block-title">专家学者</div>
+				<div class="tab-experts">
+					<!-- 专家卡片 -->
+					<div class="tab-expert-card">
+						<img src="head/eden.avif" alt="专家1">
+						<a href="https://example.com/expert1" target="_blank">一墩_Eden</a>
+					</div>
+					<div class="tab-expert-card">
+						<img src="head/eden.avif" alt="专家2">
+						<a href="https://example.com/expert2" target="_blank">一墩_Eden</a>
+					</div>
+					<!-- ...更多 -->
+				</div>
+			</div>
+
+			<!-- 第二部分：相关链接 -->
+			<div class="tab-block-row">
+				<div class="tab-block-title">相关链接</div>
+				<div class="tab-rel-links">
+					<a href="https://link1.com" target="_blank">官方包</a>
+					<a href="https://link2.com" target="_blank">秋叶包</a>
+					<a href="https://link3.com" target="_blank">其他</a>
+				</div>
+			</div>
+
+			<!-- 第三部分：相关阅读 -->
+			<div>
+				<div class="tab-block-title">相关阅读</div>
+				<div class="tab-read-list">
+					<a href="https://www.bilibili.com/video/BV1pZ42147iV/?spm_id_from=333.1387.homepage.video_card.click" target="_blank">第二期丨超自然AI换脸-升级版丨优化显存 | 轻松安装</a>
+					<a href="https://news2.com" target="_blank">新闻文章2标题</a>
+					<a href="https://news3.com" target="_blank">新闻文章3标题</a>
+				</div>
+			</div>
+
+		</div>
             </div>
 
             <div class="tab-panel" id="face">
-                <h3>AI 换脸工具</h3>
-                <p>InsightFaceSwap、roop、DeepFaceLab 快速上手、训练踩坑记录……</p>
-                <a href="https://github.com/s0md3v/roop" target="_blank">Roop · GitHub</a>
-            </div>
-        </div>
+		<div class="tab-panel-content">
+			<!-- 第一部分：专家学者 -->
+			<div class="tab-block-row">
+				<div class="tab-block-title">专家学者</div>
+				<div class="tab-experts">
+					<!-- 专家卡片 -->
+					<div class="tab-expert-card">
+						<img src="head/eden.avif" alt="专家1">
+						<a href="https://example.com/expert1" target="_blank">一墩_Eden</a>
+					</div>
+					<div class="tab-expert-card">
+						<img src="head/eden.avif" alt="专家2">
+						<a href="https://example.com/expert2" target="_blank">一墩_Eden</a>
+					</div>
+					<!-- ...更多 -->
+				</div>
+			</div>
+
+			<!-- 第二部分：相关链接 -->
+			<div class="tab-block-row">
+				<div class="tab-block-title">相关链接</div>
+				<div class="tab-rel-links">
+					<a href="https://link1.com" target="_blank">官方包</a>
+					<a href="https://link2.com" target="_blank">秋叶包</a>
+					<a href="https://link3.com" target="_blank">其他</a>
+				</div>
+			</div>
+
+			<!-- 第三部分：相关阅读 -->
+			<div>
+				<div class="tab-block-title">相关阅读</div>
+				<div class="tab-read-list">
+					<a href="https://www.bilibili.com/video/BV1pZ42147iV/?spm_id_from=333.1387.homepage.video_card.click" target="_blank">第二期丨超自然AI换脸-升级版丨优化显存 | 轻松安装</a>
+					<a href="https://news2.com" target="_blank">新闻文章2标题</a>
+					<a href="https://news3.com" target="_blank">新闻文章3标题</a>
+				</div>
+			</div>
+
+		</div>
     </div>
 
         <footer>
@@ -746,6 +939,13 @@
                 const q = document.getElementById("searchInput").value.trim();
                 if (q) window.open("https://github.com/search?q=" + encodeURIComponent(q), "_blank");
             }
+
+            function searchHuggingface() {
+                const q = document.getElementById("searchInput").value.trim();
+                if (q) window.open("https://huggingface.co/search?q=" + encodeURIComponent(q), "_blank");
+            }
+
+
 
             /* —— Tab 切换 —— */
             document.getElementById('tabHeader').addEventListener('click', e => {
