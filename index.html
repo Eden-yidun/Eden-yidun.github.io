@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Eden的AI导航</title>  <!-- 网站标签页的标题 -->
     <link rel="icon" href="icon/favicon.ico" type="image/x-icon"> <!-- 添加favicon链接 -->
     <style>
         body {
 			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 			background-color: #f9f9f9; /* 这是一个CSS注释 */
-			color: #333;
+			color: #000;
 			text-align: center;
 			margin-bottom: 10px;
         }
@@ -79,19 +80,39 @@
         	.nav-section{ 
            		display: grid;
     			grid-template-columns: repeat(8, 1fr);  /* 每行10个，超出自动换行！ */
-          	  	gap: 15px;
+          	  	gap: 20px;
           	  	padding: 15px;
             	border: 1px solid #ccc; /* 添加边框 */
             	border-radius: 10px; /* 边框圆角 */
             	background-color: #fff; /* 背景颜色 */
        		 }
+	
 		
+		.nav2-section{  /* 板块二的白框的排布 */
+            display: block;
+            gap: 0px;
+            padding: 10px 0;
+            border: 1px solid #ccc; /* 添加边框 */
+            border-radius: 10px; /* 边框圆角 */
+            background-color: #fff; /* 背景颜色 */
+        }
 
-				/* 常用的卡片 */
+
+/*板块二 每个分类的样式 */
+.category-list {
+            display: grid;
+            grid-template-columns:repeat(11, 1fr);   /*标题1+卡片9+更多按钮1=11 */
+            gap: 0px;
+            padding: 0px 15px 0 15px;
+            border-radius: 10px; /* 边框圆角 */
+            background-color: #fff; /* 背景颜色 */
+}
+		
+				/* 每个卡片 */
 				.nav-item {
 					background: #fff;
 					border-radius: 10px;
-					padding: 1px 10px;
+					padding: 0px 10px;
 					display: flex;
 					flex-direction:row; /* 统一竖排，板块一无说明也 OK */
 					align-items: center;
@@ -101,7 +122,6 @@
 					box-shadow: 0 1px 4px rgba(0,0,0,.00);
 					transition: .25s;
 					font-size: 14px;
-					margin: 0; /* 移除段落的上边距 */
 				}
 
 					.nav-item:hover {
@@ -113,7 +133,13 @@
 						width: 20px; /* 减小图片大小以缩小图标 */
 						height: 20px; /* 减小图片大小以缩小图标 */
 					}
-
+		
+					.nav-item .name {
+						font-size: 14px;
+						text-align: left; 
+						word-break: break-all;
+						line-height: 1;
+					}
 
 					/* 常用小字说明设置 */
 					.nav-item .desc {
@@ -138,35 +164,19 @@
 						display: block;
 					}
 		
-		.nav2-section{  /* 板块二的白框的排布 */
-            display: block;
-            gap: 0px;
-            padding: 0px;
-            border: 1px solid #ccc; /* 添加边框 */
-            border-radius: 10px; /* 边框圆角 */
-            background-color: #fff; /* 背景颜色 */
-        }
-
-            /* 板块二分类名称文字设置 */
-            .nav2-section h2 {
-				grid-column: 1 / 1; /* 强制新行并靠左，不占满 */
-				font-size: 14px;
-				display: flex;
-				align-items: center;
-				text-align: left; /* 标题居左 */
-				padding: 0 0 0 10px;
-				gap: 0px;
-				margin: 0
-            }
-
-.category-list {
-            display: grid;
-            grid-template-columns: repeat(11, 1fr);
-            gap: 15px;
-            padding: 15px;
-            border-radius: 10px; /* 边框圆角 */
-            background-color: #fff; /* 背景颜色 */
+/* 板块二分类名称卡片样式 */
+.category-title {
+    color: #0078d7;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    letter-spacing: 2px;
+    min-height: 38px;
+    border-radius: 8px;
+    margin-bottom: 0;
 }
+		
 /* 更多按钮样式 */
 .more-card {
   display: flex;
@@ -367,7 +377,7 @@
             <a class="nav-item" href="https://chat.openai.com" target="_blank">
                 <img src="icon/chatgpt.ico" alt="ChatGPT">
                 <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
+                <span class="desc">擅长三个关键领域：精确遵循指令、视觉效果的美学质量以及完美的字体排版。用无可挑剔的文字创建图形设计</span>
             </a>
 
             <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
@@ -510,163 +520,9 @@
             </a>
 
         </div>
+	<!-- 板块二.分类网站 -->
+	<div class="nav2-section" id="nav2-section"></div>
 
-		<div class="nav2-section"><!-- 板块二.分类网站-->
-			
-			<div class="category-list" data-collapsed="true">
-				
-				<!--分类标题-->	
-				<h2> 
-					<span>综合类</span>
-				</h2>
-				<a class="nav-item" href="https://chat.openai.com" target="_blank">
-					<span>ChatGPT</span>
-					<span class="desc">AI的先驱者</span>
-				</a>
-
-				<a class="nav-item" href="https://huggingface.co" target="_blank">
-					<span>HuggingFace</span>
-					<span class="desc">顶级AI社区</span>
-				</a>
-
-				<a class="nav-item" href="https://www.perplexity.ai/" target="_blank">
-					<span>Perplexity</span>
-					<span class="desc">AI搜索神器</span>
-				</a>
-
-				<a class="nav-item" href="https://poe.com/" target="_blank">
-					<span>Poe</span>
-					<span class="desc">AI集合网站</span>
-				</a>
-
-				<a class="nav-item" href="https://monica.im/" target="_blank">
-					<span>Monica</span>
-					<span class="desc">AI集合网站</span>
-				</a>
-
-				<a class="nav-item" href="https://ollama.com/" target="_blank">
-					<span>Ollama</span>
-					<span class="desc">本地AI工具</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<div class="nav-item more-card" onclick="toggleCategory(this)">更多</div>
-				<!--第一行结束，后面的是默认隐藏-->
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-			
-		    </div>
-			
-			<div class="category-list" data-collapsed="true">
-				
-				<!--分类标题-->	
-				<h2> 
-					<span>综合类</span>
-				</h2>
-				<a class="nav-item" href="https://chat.openai.com" target="_blank">
-					<span>ChatGPT</span>
-					<span class="desc">AI的先驱者</span>
-				</a>
-
-				<a class="nav-item" href="https://huggingface.co" target="_blank">
-					<span>HuggingFace</span>
-					<span class="desc">顶级AI社区</span>
-				</a>
-
-				<a class="nav-item" href="https://www.perplexity.ai/" target="_blank">
-					<span>Perplexity</span>
-					<span class="desc">AI搜索神器</span>
-				</a>
-
-				<a class="nav-item" href="https://poe.com/" target="_blank">
-					<span>Poe</span>
-					<span class="desc">AI集合网站</span>
-				</a>
-
-				<a class="nav-item" href="https://monica.im/" target="_blank">
-					<span>Monica</span>
-					<span class="desc">AI集合网站</span>
-				</a>
-
-				<a class="nav-item" href="https://ollama.com/" target="_blank">
-					<span>Ollama</span>
-					<span class="desc">本地AI工具</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<div class="nav-item more-card" onclick="toggleCategory(this)">更多</div>
-				<!--第一行结束，后面的是默认隐藏-->
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-
-				<a class="nav-item" href="https://lmstudio.ai/" target="_blank" style="display:none;">
-					<span>LM Studio</span>
-					<span class="desc">本地AI工具包</span>
-				</a>
-			
-		    </div>
-			
-
-        </div>
     </div>
 
     <!-- 板块三 · 专题标签页 -->
@@ -851,37 +707,89 @@
                 const q = document.getElementById("searchInput").value.trim();
                 if (q) window.open("https://huggingface.co/search?q=" + encodeURIComponent(q), "_blank");
             }
+
 	
-/* ———  板块二的更多功能  ——— */
-function toggleCategory(btn) {
-  const list = btn.parentElement; // 当前分类的网址容器
-  const collapsed = list.getAttribute('data-collapsed') !== 'false';
-  const N = 9; // 一行多少卡片
+const SHEET_URL = 'https://opensheet.elk.sh/18y05qlJ0yJCHgNUaD2r9y6bbzdfosA5oJ79V4by3ASs/Sheet1';
+const N = 10; // 每行/默认显示9个卡片（包含分类标题）
 
-  // 只操作自己分类下的卡片
-  const cards = Array.from(list.querySelectorAll('.nav-item:not(.more-card)'));
-  const moreCard = btn;
-
-  if (collapsed) {
-    // 展开
-    cards.forEach(card => card.style.display = "");
-    moreCard.innerText = "收起";
-    list.setAttribute('data-collapsed', 'false');
-  } else {
-    // 收起
-    cards.forEach((card, idx) => {
-      card.style.display = idx < N ? "" : "none";
+fetch(SHEET_URL)
+  .then(res=>res.json())
+  .then(rows=>{
+    // 分组+记顺序
+    const groups = {}, groupOrder = [];
+    rows.forEach(row => {
+      const type = row['class'] || '未分类';
+      if(!groups[type]) {
+        groups[type] = [];
+        groupOrder.push(type);
+      }
+      groups[type].push(row);
     });
-    moreCard.innerText = "更多";
-    list.setAttribute('data-collapsed', 'true');
-  }
 
-  // 始终把“更多”按钮放到第N+1个
-  const nthCard = cards[N - 1];
-  if (nthCard && moreCard.previousElementSibling !== nthCard) {
-    list.insertBefore(moreCard, nthCard.nextElementSibling);
-  }
-}
+    const container = document.getElementById('nav2-section');
+    groupOrder.forEach(type => {
+      const items = groups[type];
+
+      // 1. 分类容器
+      const list = document.createElement('div');
+      list.className = 'category-list';
+      list.setAttribute('data-collapsed','true');
+
+      // 2. 分类标题卡片（第1格）
+      const titleCard = document.createElement('div');
+      titleCard.className = 'nav-item category-title';
+      titleCard.textContent = type;
+      list.appendChild(titleCard);
+
+      // 3. 网址卡片
+      items.forEach((row, idx) => {
+        const card = document.createElement('a');
+        card.className = 'nav-item';
+        card.href = row['URL'];
+        card.target = '_blank';
+        card.innerHTML = `
+          <span class="name">${row['name']||''}</span>
+          <span class="desc">${row['About']||''}</span>
+        `;
+        // 收起状态下隐藏N-1以后的卡片（第1格是标题卡片）
+        if(idx >= N-1) card.style.display = 'none';
+        list.appendChild(card);
+      });
+
+      // 4. “更多”按钮
+      if(items.length > N-1){
+        const more = document.createElement('div');
+        more.className = 'nav-item more-card';
+        more.textContent = '更多';
+        more.onclick = function(){
+          const collapsed = list.getAttribute('data-collapsed') !== 'false';
+          // 展开/收起卡片
+          Array.from(list.querySelectorAll('.nav-item:not(.category-title):not(.more-card)')).forEach((card, idx) => {
+            card.style.display = (collapsed || idx < N-1) ? '' : 'none';
+          });
+          more.textContent = collapsed ? '收起' : '更多';
+          list.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+          // 始终插在第N格（即标题卡+N-1卡片之后）
+          const cards = Array.from(list.querySelectorAll('.nav-item:not(.more-card)'));
+          const nth = cards[N-1];
+          if(nth && more.previousElementSibling !== nth){
+            list.insertBefore(more, nth.nextElementSibling);
+          }
+        };
+        // 初始插入第N格
+        setTimeout(()=>{
+          const cards = Array.from(list.querySelectorAll('.nav-item:not(.more-card)'));
+          const nth = cards[N-1];
+          if(nth) list.insertBefore(more, nth.nextElementSibling);
+        },0);
+        list.appendChild(more);
+      }
+      container.appendChild(list);
+    });
+  });
+
+	
+	
 
 
 
