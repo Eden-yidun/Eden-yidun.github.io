@@ -34,7 +34,7 @@
             font-weight: bold;
             color: inherit;
 			text-align: left;
-			padding: 10px 0 0 0px; /* 四周间隙 */
+			padding: 10px 0 0 0; /* 四周间隙 */
         }
 
 
@@ -42,7 +42,7 @@
         .search-bar {
             max-width: 1200px;
             margin: auto;
-			padding: 0 0 0 10px;
+			padding: 10px 0 20px 0;
 			text-align: center;	
         }
 
@@ -358,7 +358,7 @@
     <!-- 搜索板块文字设置 -->
     <header>
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="搜索一下试试...Try searching..." />
+            <input type="text" id="searchInput" placeholder="搜索一下试试..." />
 			
             <button onclick="searchBaidu()">百度一下</button>
             <button onclick="searchGoogle()">Google</button>	
@@ -370,156 +370,9 @@
         </div>
     </header>
 
-    <div class="nav-grid">
-        <!-- 板块一.常用网站 -->
-        <div class="nav-section">
-            <!-- 第一行 -->
-            <a class="nav-item" href="https://chat.openai.com" target="_blank">
-                <img src="icon/chatgpt.ico" alt="ChatGPT">
-                <span>ChatGPT</span>
-                <span class="desc">擅长三个关键领域：精确遵循指令、视觉效果的美学质量以及完美的字体排版。用无可挑剔的文字创建图形设计</span>
-            </a>
-
-            <a class="nav-item" href="https://chat.deepseek.com" target="_blank">
-                <img src="https://deepseek.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/deepseek.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-
-            </a>
-            <a class="nav-item" href="https://poe.com" target="_blank">
-                <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
-                <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-			
-            <a class="nav-item" href="https://x.ai/grok" target="_blank">
-                <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-
-            </a>
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <!-- 第二行 -->
-            <a class="nav-item" href="https://www.midjourney.com" target="_blank">
-                <img src="https://www.midjourney.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/midjourney.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://civitai.com" target="_blank">
-                <img src="https://civitai.com/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/civitai.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://poe.com" target="_blank">
-                <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
-                <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-            <a class="nav-item" href="https://grok.com/" target="_blank">
-                <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <!-- 第三行 -->
-            <a class="nav-item" href="https://www.cursor.com" target="_blank">
-                <img src="https://www.cursor.com/favicon.ico" alt="ChatGPT" onerror="this.onerror=null; this.src='icon/cursor.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://modelcontextprotocol.io" target="_blank">
-                <img src="https://modelcontextprotocol.io/favicon.ico" alt="Deepseek" onerror="this.onerror=null; this.src='icon/mcp.ico';">
-                <span>ChatGPT</span>
-				<span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://poe.com" target="_blank">
-                <img src="https://poe.com/favicon.ico" alt="Poe" onerror="this.onerror=null; this.src='icon/poe.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://gemini.google.com" target="_blank">
-                <img src="https://gemini.google.com/favicon.ico" alt="Gemini" onerror="this.onerror=null; this.src='icon/gemini.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://grok.com/" target="_blank">
-                <img src="https://x.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/grok.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-				<span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-            <a class="nav-item" href="https://claude.ai" target="_blank">
-                <img src="https://claude.ai/favicon.ico" alt="Claude" onerror="this.onerror=null; this.src='icon/claude.ico';">
-                <span>ChatGPT</span>
-                <span class="desc">OpenAI GPT‑4o 直连</span>
-            </a>
-
-        </div>
+  <div class="nav-grid">
+        <!-- 板块一：常用网址区域 -->
+	<div class="nav-section" id="nav-section"></div>
 	<!-- 板块二.分类网站 -->
 	<div class="nav2-section" id="nav2-section"></div>
 
@@ -707,8 +560,39 @@
                 const q = document.getElementById("searchInput").value.trim();
                 if (q) window.open("https://huggingface.co/search?q=" + encodeURIComponent(q), "_blank");
             }
+// 板块一 谷歌表格自动获取 功能
+fetch('https://opensheet.elk.sh/18y05qlJ0yJCHgNUaD2r9y6bbzdfosA5oJ79V4by3ASs/Sheet2')
+  .then(res => res.json())
+  .then(rows => {
+    const box = document.getElementById('nav-section');
+    rows.forEach(row => {
+      const logo = row['logo name'] ? row['logo name'].toLowerCase().replace(/\s+/g, '') : 'default';
+      const localLogo = `icon/${logo}.ico`;
+      const networkLogo = row['network logo'] || '';
+      const card = document.createElement('a');
+      card.className = 'nav-item';
+      card.href = row['URL'];
+      card.target = '_blank';
 
+      // 构建img并多级兜底
+      let imgTag = `<img src="${localLogo}" alt="${row['name']}" style="width:22px;height:22px;margin-right:6px;vertical-align:middle;object-fit:contain;"`;
+      if (networkLogo) {
+        imgTag += ` onerror="if(!this._triedNet){this._triedNet=1;this.src='${networkLogo}'}else{this.onerror=null;this.src='icon/default.ico';}"`;
+      } else {
+        imgTag += ` onerror="this.onerror=null;this.src='icon/default.ico';"`;
+      }
+      imgTag += '>';
+
+      card.innerHTML = `
+        ${imgTag}
+        <span class="name">${row['name']||''}</span>
+        <span class="desc">${row['about']||''}</span>
+      `;
+      box.appendChild(card);
+    });
+  });
 	
+	// 板块二 谷歌表格自动获取 功能
 const SHEET_URL = 'https://opensheet.elk.sh/18y05qlJ0yJCHgNUaD2r9y6bbzdfosA5oJ79V4by3ASs/Sheet1';
 const N = 10; // 每行/默认显示9个卡片（包含分类标题）
 
