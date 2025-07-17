@@ -79,7 +79,7 @@
  			/* 板块一的白框的排布 */
         	.nav-section{ 
            		display: grid;
-    			grid-template-columns: repeat(8, 1fr);  /* 每行10个，超出自动换行！ */
+    			grid-template-columns: repeat(7, 1fr);  /* 每行10个，超出自动换行！ */
           	  	gap: 20px;
           	  	padding: 15px;
             	border: 1px solid #ccc; /* 添加边框 */
@@ -101,7 +101,7 @@
 /*板块二 每个分类的样式 */
 .category-list {
             display: grid;
-            grid-template-columns:repeat(11, 1fr);   /*标题1+卡片9+更多按钮1=11 */
+            grid-template-columns:repeat(10, 1fr) ;   /*标题1+卡片9+更多按钮1=11 */
             gap: 0px;
             padding: 0px 15px 0 15px;
             border-radius: 10px; /* 边框圆角 */
@@ -121,7 +121,7 @@
 					color: inherit;
 					box-shadow: 0 1px 4px rgba(0,0,0,.00);
 					transition: .25s;
-					font-size: 14px;
+					font-size: 15px;
 				}
 
 					.nav-item:hover {
@@ -134,12 +134,27 @@
 						height: 10px; /* 减小图片大小以缩小图标 */
 					}
 		
-					.nav-item .name {
-    font-size: 14px;
-    text-align: justify;
+.nav-item .name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
     word-break: break-all;
-    line-height: 1;
-					}
+	line-height: 1.5;
+    height: 1.5em;
+    transition: all 0.18s;
+	text-align: left;
+}
+.nav-item .name:hover {
+    -webkit-line-clamp: unset;
+    height: auto;
+    white-space: normal;
+    overflow: visible;
+    background: #fff;
+    z-index: 20;
+	text-align: left;
+}
+		
 
 					/* 常用小字说明设置 */
 					.nav-item .desc {
@@ -154,7 +169,7 @@
 						border: 1px solid #ddd;
 						border-radius: 4px;
 						box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-						font-size: 12px;
+						font-size: 13px;
 						color: #444;
 						z-index: 10;
 						pointer-events: none; /* 不抢焦点 */
@@ -396,12 +411,17 @@
 				<div class="tab-experts">
 					<!-- 专家卡片 -->
 					<div class="tab-expert-card">
+						<img src="head/秋葉aaaki.avif" alt="专家2">
+						<a href="https://space.bilibili.com/12566101/upload/video" target="_blank">秋葉aaaki</a>
+					</div>
+					<div class="tab-expert-card">
 						<img src="head/eden.avif" alt="专家1">
 						<a href="https://example.com/expert1" target="_blank">一墩_Eden</a>
 					</div>
+
 					<div class="tab-expert-card">
-						<img src="head/eden.avif" alt="专家2">
-						<a href="https://example.com/expert2" target="_blank">一墩_Eden</a>
+						<img src="head/啦啦啦的小黄瓜.avif" alt="专家2">
+						<a href="https://space.bilibili.com/219572544/upload/video" target="_blank">啦啦啦的小黄瓜</a>
 					</div>
 					<!-- ...更多 -->
 				</div>
@@ -438,6 +458,10 @@
 				<div class="tab-block-title">专家学者</div>
 				<div class="tab-experts">
 					<!-- 专家卡片 -->
+					<div class="tab-expert-card">
+						<img src="head/与AI同行1996.avif" alt="专家2">
+						<a href="https://space.bilibili.com/60542591/upload/video" target="_blank">与AI同行1996</a>
+					</div>					
 					<div class="tab-expert-card">
 						<img src="head/eden.avif" alt="专家1">
 						<a href="https://example.com/expert1" target="_blank">一墩_Eden</a>
@@ -594,7 +618,7 @@ fetch('https://opensheet.elk.sh/18y05qlJ0yJCHgNUaD2r9y6bbzdfosA5oJ79V4by3ASs/She
 	
 	// 板块二 谷歌表格自动获取 功能
 const SHEET_URL = 'https://opensheet.elk.sh/18y05qlJ0yJCHgNUaD2r9y6bbzdfosA5oJ79V4by3ASs/Sheet1';
-const N = 10; // 每行/默认显示9个卡片（包含分类标题）
+const N = 9; // 每行/默认显示9个卡片（包含分类标题）
 
 fetch(SHEET_URL)
   .then(res=>res.json())
