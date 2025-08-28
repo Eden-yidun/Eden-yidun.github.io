@@ -54,18 +54,25 @@
                 border-radius: 5px; /* 圆角 */
                 outline: none;
             }
+/* 按钮样式设置*/
+.search-bar button {
+  padding: 10px 16px;
+  font-size: 16px;
+  margin: 0px;
+  line-height: 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-            .search-bar button {
-                padding: 10px 16px;
-                font-size: 16px;
-                margin: 0px;
-                line-height: 20px; /* 文字垂直居中 */
-                background-color: #0078d7;
-                color: white;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px; /* 圆角 */
-            }
+/* 各搜索按钮颜色 */
+.btn-baidu { background-color: #2932e1; }      /* 百度蓝 */
+.btn-google { background-color: #4285f4; }     /* Google 蓝 */
+.btn-bilibili { background-color: #fb7299; }   /* B站粉 */
+.btn-youtube { background-color: #ff0000; }    /* YouTube 红 */
+.btn-github { background-color: #333; }        /* GitHub 黑 */
+.btn-huggingface { background-color: #ffcc00; color: #000; } /* HuggingFace 黄 */
 
         /* 网格布局 */
         .nav-grid {
@@ -99,14 +106,20 @@
 
 
 /*板块二 每个分类的样式 */
-.category-list {
+		.category-list {
             display: grid;
             grid-template-columns:repeat(10, 1fr) ;   /*标题1+卡片9+更多按钮1=11 */
             gap: 0px;
             padding: 0px 15px 0 15px;
             border-radius: 10px; /* 边框圆角 */
             background-color: #fff; /* 背景颜色 */
-}
+		}
+		/* 展开态：容器底部加一条虚线，并拉开与下个分类的距离 */
+		.category-list[data-collapsed="false"]{
+		  border-bottom: 1px solid #e5e7eb;  /* 新：下边线 */
+		  padding-bottom: 14px;               /* 新：与下行拉开 */
+		  margin-bottom: 14px;                /* 新：和下一个分类拉开 */
+		}
 		
 				/* 每个卡片 */
 				.nav-item {
@@ -375,12 +388,12 @@
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="搜索一下试试..." />
 			
-            <button onclick="searchBaidu()">百度一下</button>
-            <button onclick="searchGoogle()">Google</button>	
-            <button onclick="searchBilibili()">Bilibili</button>
-            <button onclick="searchYoutube()">YouTube</button>
-            <button onclick="searchGithub()">GitHub</button>
-            <button onclick="searchHuggingface()">Hugging Face</button>
+<button class="btn-baidu" onclick="searchBaidu()">百度一下</button>
+<button class="btn-google" onclick="searchGoogle()">Google</button>	
+<button class="btn-bilibili" onclick="searchBilibili()">Bilibili</button>
+<button class="btn-youtube" onclick="searchYoutube()">YouTube</button>
+<button class="btn-github" onclick="searchGithub()">GitHub</button>
+<button class="btn-huggingface" onclick="searchHuggingface()">Hugging Face</button>
 
         </div>
     </header>
@@ -396,8 +409,8 @@
   <!-- 选项卡 -->
   <ul class="tab-header" id="tabHeader">
     <li class="active" data-tab="comfy">ComfyUI 专题</li>
-    <li data-tab="voice">AI 变-/声专题</li>
-    <li data-tab="face">换脸专题</li>
+    <li data-tab="voice">AI 变声专题</li>
+    <li data-tab="face">AI 换脸专题</li>
   </ul>
 
   <!-- 面板：ComfyUI -->
