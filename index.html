@@ -394,7 +394,7 @@
 <button class="btn-bilibili" onclick="searchBilibili()">Bilibili</button>
 <button class="btn-youtube" onclick="searchYoutube()">YouTube</button>
 <button class="btn-github" onclick="searchGithub()">GitHub</button>
-<button class="btn-huggingface" onclick="searchHuggingface()">Hugging Face</button>
+<button class="btn-huggingface" onclick="searchHuggingface()">HuggingFace</button>
 
         </div>
     </header>
@@ -519,7 +519,7 @@
 
             function searchHuggingface() {
                 const q = document.getElementById("searchInput").value.trim();
-                if (q) window.open("https://huggingface.co/search?q=" + encodeURIComponent(q), "_blank");
+                if (q) window.open("https://huggingface.co/models?search=" + encodeURIComponent(q), "_blank");
             }
 // 板块一 谷歌表格自动获取 功能
 fetch('https://opensheet.elk.sh/18y05qlJ0yJCHgNUaD2r9y6bbzdfosA5oJ79V4by3ASs/Sheet2')
