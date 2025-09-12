@@ -143,7 +143,6 @@
 					min-width: 80px; /* 固定最小宽度，避免窄屏压缩 */
 					max-width: 120px; /* 限制最大宽度，防止字多撑开 */
 					white-space: nowrap; /* 卡片内元素不换行 */
-					overflow: hidden; /* 超出卡片宽度的内容隐藏 */
 				}
 
 					.nav-item:hover {
@@ -198,6 +197,7 @@
 						color: #444;
 						z-index: 10;
 						pointer-events: none; /* 不抢焦点 */
+						
 					}
 
 					.nav-item:hover .desc {
@@ -605,7 +605,7 @@ fetch(SHEET_URL)
         card.target = '_blank';
         card.innerHTML = `
           <span class="name">${row['name']||''}</span>
-          <span class="desc">${row['About']||''}</span>
+          <span class="desc">${row['about']||''}</span>
         `;
         // 收起状态下隐藏N-1以后的卡片（第1格是标题卡片）
         if(idx >= N-1) card.style.display = 'none';
