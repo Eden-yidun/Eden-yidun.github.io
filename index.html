@@ -73,6 +73,8 @@
 .btn-youtube { background-color: #ff0000; }    /* YouTube 红 */
 .btn-github { background-color: #333; }        /* GitHub 黑 */
 .btn-huggingface { background-color: #ffcc00; color: #000; } /* HuggingFace 黄 */
+		
+		
 
         /* 网格布局 */
         .nav-grid {
@@ -92,6 +94,7 @@
             	border: 1px solid #ccc; /* 添加边框 */
             	border-radius: 10px; /* 边框圆角 */
             	background-color: #fff; /* 背景颜色 */
+				overflow-x: auto; /* 窄屏时允许横向滚动 */
        		 }
 	
 		
@@ -102,6 +105,7 @@
             border: 1px solid #ccc; /* 添加边框 */
             border-radius: 10px; /* 边框圆角 */
             background-color: #fff; /* 背景颜色 */
+			overflow-x: auto; /* 窄屏时允许横向滚动 */
         }
 
 
@@ -136,6 +140,10 @@
 					box-shadow: 0 1px 4px rgba(0,0,0,.00);
 					transition: .25s;
 					font-size: 15px;
+					min-width: 80px; /* 固定最小宽度，避免窄屏压缩 */
+					max-width: 120px; /* 限制最大宽度，防止字多撑开 */
+					white-space: nowrap; /* 卡片内元素不换行 */
+					overflow: hidden; /* 超出卡片宽度的内容隐藏 */
 				}
 
 					.nav-item:hover {
@@ -148,26 +156,29 @@
 						height: 10px; /* 减小图片大小以缩小图标 */
 					}
 		
-.nav-item .name {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    word-break: break-all;
-	line-height: 1.5;
-    height: 1.5em;
-    transition: all 0.18s;
-	text-align: left;
-}
-.nav-item .name:hover {
-    -webkit-line-clamp: unset;
-    height: auto;
-    white-space: normal;
-    overflow: visible;
-    background: #fff;
-    z-index: 20;
-	text-align: left;
-}
+					.nav-item .name {
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 1;
+						overflow: hidden;
+						word-break: break-all;
+						line-height: 1.5;
+						height: 1.5em;
+						transition: all 0.18s;
+						text-align: left;
+						display: -webkit-box;
+  						text-overflow: ellipsis; /* 用省略号代替强制换行 */
+						white-space: nowrap; /* 禁止换行，避免单个字截断 */
+					}
+					.nav-item .name:hover {
+						-webkit-line-clamp: unset;
+						height: auto;
+						white-space: normal;
+						overflow: visible;
+						background: #fff;
+						z-index: 20;
+						text-align: left;
+					}
 		
 
 					/* 常用小字说明设置 */
