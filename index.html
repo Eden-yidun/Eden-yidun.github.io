@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eden's AI Navigation</title>
+    <title>Eden HUB</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,48 +15,54 @@
             --apple-card: #FFFFFF;
             --apple-accent: #0071E3;
         }
-
+        
         html {
             font-size: 15px; /* Slightly smaller base for tighter feel */
             scroll-behavior: smooth;
         }
-
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--apple-bg);
             color: #1d1d1f;
             -webkit-font-smoothing: antialiased;
         }
-
+        
         .apple-blur {
             backdrop-filter: saturate(180%) blur(20px);
             background-color: rgba(255, 255, 255, 0.85);
         }
-
+        
         /* Ensure dropdowns pop over everything */
+        
         .category-row {
             position: relative;
             z-index: 1;
         }
+        
         .category-row:hover {
             z-index: 50;
         }
-
+        
         .custom-scrollbar::-webkit-scrollbar {
             width: 3px;
         }
+        
         .custom-scrollbar::-webkit-scrollbar-track {
             background: transparent;
         }
+        
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #d2d2d7;
             border-radius: 10px;
         }
-
+        
         .transition-apple {
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
+
+<link rel="stylesheet" href="/index.css">
 <script type="importmap">
 {
   "imports": {
@@ -66,10 +72,10 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <script type="module" crossorigin src="/assets/index-BE6DGhIJ.js"></script>
 </head>
 <body>
     <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+    <!-- 引入入口文件 -->
 </body>
 </html>
